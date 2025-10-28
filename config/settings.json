@@ -1,9 +1,0 @@
-{
-    "settings": {
-        "theme": "ringer",
-        "language": "en",
-        "notifications": true,
-        "autoUpdate": false
-    },
-    "version": "1.0"
-}
