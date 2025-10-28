@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>{{ page_title }} - {{ shop.name }}</title>
+    <meta name="description" content="{{ page_description | escape }}">
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {{ content_for_header }}
+  </head>
+  <body class="bg-white text-black">
+    <main role="main">
+      {{ content_for_layout }}
+      
+    </main>
+  </body>
+</html>

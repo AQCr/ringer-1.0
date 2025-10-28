@@ -1,0 +1,27 @@
+<section id="{{ section.id }}" class="py-8 bg-white border-t border-black/5">
+  <div class="container mx-auto px-6 max-w-6xl flex items-center justify-between">
+    <div>
+      <h3 class="text-xl font-semibold text-black">{{ section.settings.title }}</h3>
+      <p class="text-black/70">{{ section.settings.text }}</p>
+    </div>
+    <div class="text-center">
+      <div id="promo-countdown-{{ section.id }}" data-endtime="{{ section.settings.end_time }}" class="text-lg font-mono text-black"></div>
+      {% if section.settings.cta_text %}
+        <a href="{{ section.settings.cta_link }}" class="mt-2 inline-block px-4 py-2 border border-black rounded">{{ section.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": "Offer countdown",
+    "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Limited time offer" },
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Hurry up — offer ends soon." },
+      { "type": "text", "id": "end_time", "label": "End date/time (UTC)" },
+      { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Shop now" },
+      { "type": "url", "id": "cta_link", "label": "CTA link", "default": "#" }
+    ]
+  }
+  {% endschema %}
+</section>

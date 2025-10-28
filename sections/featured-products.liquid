@@ -1,0 +1,47 @@
+<section id="{{ section.id }}" class="py-12 bg-white">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-semibold text-black">{{ section.settings.title }}</h2>
+      {% if section.settings.view_all_link %}
+        <a href="{{ section.settings.view_all_link }}" class="text-sm border border-black/10 px-3 py-1 rounded">View all</a>
+      {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-colzs-3 gap-6">
+      {% if section.settings.product_1 %}
+        {% assign p1 = all_products[section.settings.product_1] %}
+        {% render 'product-card', product: p1 %}
+      {% endif %}
+      {% if section.settings.product_2 %}
+        {% assign p2 = all_products[section.settings.product_2] %}
+        {% render 'product-card', product: p2 %}
+      {% endif %}
+      {% if section.settings.product_3 %}
+        {% assign p3 = all_products[section.settings.product_3] %}
+        {% render 'product-card', product: p3 %}
+      {% endif %}
+
+      {% if section.settings.collection != blank and section.settings.auto_populate %}
+        {% assign col = collections[section.settings.collection] %}
+        {% for product in col.products limit:3 %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": "Featured products",
+    "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Featured products" },
+      { "type": "product", "id": "product_1", "label": "Product 1" },
+      { "type": "product", "id": "product_2", "label": "Product 2" },
+      { "type": "product", "id": "product_3", "label": "Product 3" },
+      { "type": "collection", "id": "collection", "label": "Collection (alternative)" },
+      { "type": "checkbox", "id": "auto_populate", "label": "Auto-populate from collection", "default": false },
+      { "type": "url", "id": "view_all_link", "label": "View all link" }
+    ]
+  }
+  {% endschema %}
+</section>

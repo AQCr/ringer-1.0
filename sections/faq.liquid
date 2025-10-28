@@ -1,0 +1,33 @@
+<section id="{{ section.id }}" class="py-12 bg-white">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <h2 class="text-2xl font-semibold text-black mb-6">{{ section.settings.title }}</h2>
+
+    <div class="space-y-3">
+      {% for block in section.blocks %}
+        <div class="faq-item border rounded">
+          <button class="faq-toggle w-full text-left p-4 flex justify-between items-center">
+            <span class="font-medium">{{ block.settings.question }}</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-panel px-4 pb-4 hidden text-black/80">{{ block.settings.answer }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name": "FAQ",
+    "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Frequently asked questions" }
+    ],
+    "blocks": [
+      { "type": "faq", "name": "FAQ", "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
+      ] }
+    ],
+    "max_blocks": 12
+  }
+  {% endschema %}
+</section>
