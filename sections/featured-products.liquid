@@ -43,7 +43,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 mt-auto">
                   {% if section.settings.show_add_to_cart %}
-                    <form method="post" action="/cart/add" class="w-full sm:w-1/2">
+                    <form method="post" action={{ routes.cart_add_url }} class="w-full sm:w-1/2">
                       <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                       <button type="submit" class="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Add to Cart</button>
                     </form>

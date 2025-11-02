@@ -111,7 +111,7 @@
             <div class="border rounded-xl shadow-md overflow-hidden flex flex-col bg-white hover:shadow-lg transition">
                 {% if section.settings.product != blank %}
                   {% assign product = all_products[section.settings.product] %}
-                    <img src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}" width="" height= class="w-full h-72 object-cover">
+                    <img src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}" width="" height="" class="w-full h-72 object-cover">
                 {% endif %}
                 <div class="p-5 flex flex-col flex-grow justify-between">
                     <h3 class="text-lg font-semibold mb-2">{{ product.title }}</h3>
