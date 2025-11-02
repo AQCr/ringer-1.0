@@ -3,12 +3,11 @@
   
   "sections": {
     "navigation": { "type": "navigation" },
-    "hero": { "type": "hero-section-top" },
+    "hero-section-top": { "type": "hero-section-top" },
     "brand-story": { "type": "brand-story" },
     "featured-products": { "type": "featured-products" },
     "video-banner": { "type": "video-banner" },
-    "benefits": { "type": "benefits" },
-    "collections-showcase": { "type": "collection-showcase" },
+   "collections-showcase": { "type": "collection-showcase" },
     "testimonials": { "type": "testimonials" },
     "features":{"type":"features"},
     "offer-countdown": { "type": "offer-countdown" },
