@@ -1,33 +1,120 @@
-<section id="{{ section.id }}" class="py-12 bg-white">
-  <div class="container mx-auto px-6 max-w-4xl">
-    <h2 class="text-2xl font-semibold text-black mb-6">{{ section.settings.title }}</h2>
+{%- style -%}
+  .faq-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .faq-container {
+    margin-top: 30px;
+  }
+  .faq-item {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+  }
+  .faq-question {
+    padding: 15px 40px 15px 15px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+  .faq-question.active::after {
+    content: '-';
+  }
+  .faq-answer {
+    display: none;
+    padding: 0 15px 15px;
+    line-height: 1.6;
+  }
+  .faq-answer.show {
+    display: block;
+  }
+{%- endstyle -%}
 
-    <div class="space-y-3">
-      {% for block in section.blocks %}
-        <div class="faq-item border rounded">
-          <button class="faq-toggle w-full text-left p-4 flex justify-between items-center">
-            <span class="font-medium">{{ block.settings.question }}</span>
-            <span class="faq-chevron">+</span>
-          </button>
-          <div class="faq-panel px-4 pb-4 hidden text-black/80">{{ block.settings.answer }}</div>
+<section class="faq-section">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center mb-10 text-center">{{ section.settings.title | escape }}</h2>
+    <div class="faq-container">
+      {%- for block in section.blocks -%}
+        <div class="faq-item">
+          <div class="faq-question">{{ block.settings.question }}</div>
+          <div class="faq-answer">{{ block.settings.answer }}</div>
         </div>
-      {% endfor %}
+      {%- endfor -%}
     </div>
   </div>
-
-  {% schema %}
-  {
-    "name": "FAQ",
-    "settings": [
-      { "type": "text", "id": "title", "label": "Title", "default": "Frequently asked questions" }
-    ],
-    "blocks": [
-      { "type": "faq", "name": "FAQ", "settings": [
-        { "type": "text", "id": "question", "label": "Question" },
-        { "type": "textarea", "id": "answer", "label": "Answer" }
-      ] }
-    ],
-    "max_blocks": 12
-  }
-  {% endschema %}
 </section>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your question?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Provide the answer to your question here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const answer = question.nextElementSibling;
+      const isActive = question.classList.contains('active');
+      
+      // Close all other FAQs
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('active');
+        q.nextElementSibling.classList.remove('show');
+      });
+      
+      // Toggle current FAQ
+      if (!isActive) {
+        question.classList.add('active');
+        answer.classList.add('show');
+      }
+    });
+  });
+</script>

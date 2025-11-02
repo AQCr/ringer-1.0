@@ -1,0 +1,241 @@
+{%- liquid
+    assign section_padding_top = section.settings.padding_top | times: 0.5 | round: 0
+    assign section_padding_bottom = section.settings.padding_bottom | times: 0.5 | round: 0
+-%}
+
+<div class="sticky top-0 z-50 bg-white" data-section-id="{{ section.id }}" data-section-type="header">
+    <header class="relative" style="padding-top: {{ section_padding_top }}px; padding-bottom: {{ section_padding_bottom }}px;">
+        <nav class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                {%- if section.settings.logo != blank -%}
+                    <a href="/" class="flex-shrink-0">
+                        {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+                        {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag:
+                            class: "h-auto w-auto",
+                            widths: "50, 100, 150, 200, 250, 300, 350, 400, 450, 500",
+                            height: section.settings.logo.height,
+                            width: section.settings.logo.width,
+                            alt: logo_alt
+                        }}
+                    </a>
+                {%- else -%}
+                    <a href="/" class="text-2xl font-bold">{{ shop.name }}</a>
+                {%- endif -%}
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    {%- for link in section.settings.menu.links -%}
+                        <div class="relative group" data-hover-menu>
+                            <a href="{{ link.url }}" 
+                                 class="text-{{ section.settings.text_size }} hover:text-{{ section.settings.hover_color }} transition-colors duration-200 py-2 relative group">
+                                {{ link.title }}
+                                {%- if link.links.size > 0 -%}
+                                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                {%- endif -%}
+                                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-{{ section.settings.hover_color }} scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                            </a>
+
+                            {%- if link.links.size > 0 -%}
+                                <div class="absolute top-full left-0 w-64 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                    {%- for childlink in link.links -%}
+                                        <div class="p-4 hover:bg-gray-50 flex items-center">
+                                            {%- if childlink.object.object_type == 'collection' and childlink.object.image -%}
+                                                <img src="{{ childlink.object.image | img_url: '100x100', crop: 'center' }}" 
+                                                         alt="{{ childlink.object.title }}" 
+                                                         class="w-12 h-12 object-cover mr-3">
+                                            {%- else -%}
+                                                <div class="w-12 h-12 bg-gray-200 mr-3"></div>
+                                            {%- endif -%}
+                                            <a href="{{ childlink.url }}" class="block text-{{ section.settings.text_size }}">{{ childlink.title }}</a>
+                                        </div>
+                                    {%- endfor -%}
+                                </div>
+                            {%- endif -%}
+                        </div>
+                    {%- endfor -%}
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button type="button" 
+                                    class="p-2 hover:text-{{ section.settings.hover_color }}"
+                                    aria-label="{{ 'general.search.title' | t }}"
+                                    data-search-toggle>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+
+                    <a href="{{ routes.account_url }}" 
+                         class="p-2 hover:text-{{ section.settings.hover_color }}"
+                         aria-label="{{ 'customer.account_link' | t }}">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </a>
+
+                    <button type="button" 
+                                    class="p-2 hover:text-{{ section.settings.hover_color }}"
+                                    aria-label="{{ 'cart.title' | t }}"
+                                    data-cart-toggle>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-{{ section.settings.accent_color }} text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" data-cart-count>
+                            {{ cart.item_count }}
+                        </span>
+                    </button>
+
+                    <button type="button"
+                                    class="lg:hidden p-2 hover:text-{{ section.settings.hover_color }}"
+                                    aria-label="{{ 'general.navigation.menu' | t }}"
+                                    data-mobile-menu-toggle>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" data-mobile-menu-overlay>
+        <div class="fixed top-0 right-0 w-64 h-full bg-white transform translate-x-full transition-transform duration-300" data-mobile-menu>
+            <div class="p-4">
+                <button type="button" class="p-2 absolute top-4 right-4" data-mobile-menu-close>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+
+                <div class="mt-8">
+                    {%- for link in section.settings.menu.links -%}
+                        <div class="mb-4">
+                            <a href="{{ link.url }}" class="text-{{ section.settings.text_size }} block py-2">{{ link.title }}</a>
+                            {%- if link.links.size > 0 -%}
+                                <div class="pl-4">
+                                    {%- for childlink in link.links -%}
+                                        <a href="{{ childlink.url }}" class="text-{{ section.settings.text_size }} block py-2">{{ childlink.title }}</a>
+                                    {%- endfor -%}
+                                </div>
+                            {%- endif -%}
+                        </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.querySelector('[data-mobile-menu-toggle]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        const mobileMenuOverlay = document.querySelector('[data-mobile-menu-overlay]');
+        const mobileMenuClose = document.querySelector('[data-mobile-menu-close]');
+
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.remove('translate-x-full');
+            }, 50);
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
+            }
+        });
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Navigation",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        },
+        {
+            "type": "range",
+            "id": "logo_width",
+            "min": 20,
+            "max": 300,
+            "step": 10,
+            "unit": "px",
+            "label": "Logo width",
+            "default": 20
+        },
+        {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Menu",
+            "default": "main-menu"
+        },
+        {
+            "type": "select",
+            "id": "text_size",
+            "label": "Text size",
+            "options": [
+                {
+                    "value": "sm",
+                    "label": "Small"
+                },
+                {
+                    "value": "base",
+                    "label": "Medium"
+                },
+                {
+                    "value": "lg",
+                    "label": "Large"
+                }
+            ],
+            "default": "base"
+        },
+        {
+            "type": "color",
+            "id": "hover_color",
+            "label": "Hover color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "accent_color",
+            "label": "Accent color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 20
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 20
+        }
+    ]
+}
+{% endschema %}

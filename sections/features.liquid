@@ -1,0 +1,155 @@
+{% schema %}
+{
+  "name": "Features Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Features"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Feature Description",
+          "default": "Add your feature description here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Grid",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8
+}
+{% endschema %}
+
+<section class="py-16 px-4 bg-white">
+  <div class="container mx-auto">
+    {% if section.settings.section_heading != blank %}
+      <h2 class="text-3xl font-bold text-center mb-12">{{ section.settings.section_heading }}</h2>
+    {% endif %}
+
+    <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-3 gap-6">
+      {% for block in section.blocks %}
+        <div class="feature-card bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300" {{ block.shopify_attributes }}>
+          {% if block.settings.icon %}
+            <div class="w-16 h-16 mx-auto mb-4">
+              {{ block.settings.icon | image_url: width: 64 | image_tag: class: 'w-full h-full object-contain' }}
+            </div>
+          {% else %}
+            <div class="w-16 h-16 mx-auto mb-4 bg-gray-200 rounded-full"></div>
+          {% endif %}
+          <h3 class="text-xl font-semibold text-center mb-3">{{ block.settings.title }}</h3>
+          <p class="text-gray-600 text-center text-sm">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="md:hidden relative">
+      <div class="features-slider overflow-hidden">
+        <div class="flex transition-transform duration-300" id="slider-container">
+          {% for block in section.blocks %}
+            <div class="feature-card w-full flex-shrink-0 bg-gray-50 rounded-lg p-6 shadow-sm" {{ block.shopify_attributes }}>
+              {% if block.settings.icon %}
+                <div class="w-16 h-16 mx-auto mb-4">
+                  {{ block.settings.icon | image_url: width: 64 | image_tag: class: 'w-full h-full object-contain' }}
+                </div>
+              {% else %}
+                <div class="w-16 h-16 mx-auto mb-4 bg-gray-200 rounded-full"></div>
+              {% endif %}
+              <h3 class="text-xl font-semibold text-center mb-3">{{ block.settings.title }}</h3>
+              <p class="text-gray-600 text-center text-sm">{{ block.settings.description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md" onclick="slideFeatures(-1)">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      
+      <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md" onclick="slideFeatures(1)">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <div class="flex justify-center mt-4 gap-2" id="dots-container">
+        {% for block in section.blocks %}
+          <button class="h-2 w-2 rounded-full bg-gray-400 dot-indicator" data-index="{{ forloop.index0 }}"></button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slider = document.getElementById('slider-container');
+  const dots = document.querySelectorAll('.dot-indicator');
+  const totalSlides = {{ section.blocks.size }};
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-black', index === currentSlide);
+      dot.classList.toggle('bg-gray-400', index !== currentSlide);
+    });
+  }
+
+  function slideFeatures(direction) {
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateSlider();
+    });
+  });
+
+  // Initialize first slide
+  updateSlider();
+</script>
+
+<style>
+  .features-slider {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+</style>

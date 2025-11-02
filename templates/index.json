@@ -1,23 +1,32 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
-    "sections":{
-        "main":{
-            "type":"heading",  
-            "settings":{
-            }
-        },
-        "featured-collection":{
-            "type":"featured-collection",
-            "settings":{}
-        }
-    },
-    "order":[ "main", "featured-collection" ]
+  
+  "sections": {
+    "navigation": { "type": "navigation" },
+    "hero": { "type": "hero-section-top" },
+    "brand-story": { "type": "brand-story" },
+    "featured-products": { "type": "featured-products" },
+    "video-banner": { "type": "video-banner" },
+    "benefits": { "type": "benefits" },
+    "collections-showcase": { "type": "collection-showcase" },
+    "testimonials": { "type": "testimonials" },
+    "features":{"type":"features"},
+    "offer-countdown": { "type": "offer-countdown" },
+    "faq": { "type": "faq" },
+    "final-cta": { "type": "final-cta" },
+    "footer": { "type": "footer" }
+  },
+  "order": [
+    "navigation",
+    "hero-section-top",
+    "brand-story",
+    "featured-products",
+    "video-banner",
+    "collection-showcase",
+    "testimonials",
+    "features",
+    "offer-countdown",
+    "faq",
+    "footer"
+    ]
 }

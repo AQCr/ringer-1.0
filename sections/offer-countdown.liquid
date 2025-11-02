@@ -1,0 +1,165 @@
+{%- style -%}
+    .countdown-section {
+        padding: 2rem 0;
+        background: #f8f8f8;
+    }
+    .countdown-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+    .countdown-content {
+        flex: 1;
+        min-width: 300px;
+    }
+    .countdown-product {
+        flex: 1;
+        min-width: 300px;
+    }
+    .countdown-timer {
+        display: flex;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    .timer-block {
+        background: #000;
+        color: #fff;
+        padding: 1rem;
+        min-width: 80px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .timer-number {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .timer-label {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+    }
+    @media screen and (max-width: 768px) {
+        .timer-block {
+            min-width: 60px;
+            padding: 0.75rem;
+        }
+        .timer-number {
+            font-size: 1.5rem;
+        }
+    }
+{%- endstyle -%}
+
+{% schema %}
+{
+    "name": "Countdown Timer",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Limited Time Offer"
+        },
+        {
+            "type": "text",
+            "id": "end_date",
+            "label": "End Date"
+        },
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Select Product"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Countdown Timer",
+            "category": "Promotional"
+        }
+    ]
+}
+{% endschema %}
+
+<div class="countdown-section">
+    <div class="flex gap-0 md:flex-row items-center justify-center">
+        <div class="countdown-container">
+            <div class="countdown-content flex-1">
+               <h2 class="text-xl font-bold mb-2">{{ section.settings.heading }}</h2>
+              <h2 class="text-3xl font-bold mb-10 text-lg mb-2">Go and Grab your favourite JewelaryCollection with discount </h2>
+               <div class="countdown-timer" data-end-date="{{ section.settings.end_date | date: '%Y-%m-%d %H:%M:%S' }}">
+                   <div class="timer-block">
+                   <div class="timer-number" data-days>00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-block">
+                    <div class="timer-number" data-hours>00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-block">
+                    <div class="timer-number" data-minutes>00</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-block">
+                    <div class="timer-number" data-seconds>00</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+        <!-- <h1 class="text-lg font-semibold mb-2">{{ section.settings.heading }}</h1> -->
+        <div class="snap-start flex mx-auto px-10">
+            <div class="border rounded-xl shadow-md overflow-hidden flex flex-col bg-white hover:shadow-lg transition">
+                {% if section.settings.product != blank %}
+                  {% assign product = all_products[section.settings.product] %}
+                    <img src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}" width="" height= class="w-full h-72 object-cover">
+                {% endif %}
+                <div class="p-5 flex flex-col flex-grow justify-between">
+                    <h3 class="text-lg font-semibold mb-2">{{ product.title }}</h3>
+                    <p class="text-sm text-gray-700 mb-4">{{ product.price | money }}</p>
+                    <div class="flex items-center mb-4">
+                        {% assign rating = product.metafields.reviews.rating.value | default: 4 %}
+                        {% for i in (1..5) %}
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 {% if i <= rating %}text-yellow-400{% else %}text-gray-300{% endif %}" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.383 2.46a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.538 1.118l-3.383-2.46a1 1 0 00-1.176 0l-3.383 2.46c-.783.57-1.838-.197-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118l-3.383-2.46c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z" />
+                      </svg>
+                        {% endfor %}
+                     </div>
+                    <button href="{{ product.url }}" class=" py-2 px-4 bg-black text-white border rounded items-center justify-center hover:bg-white dark:text-white transition-colors">Shop Now</button>
+                </div>
+            </div>    
+        </div>  
+   </div>
+</div>
+
+<script>
+    function updateCountdown() {
+        const countdowns = document.querySelectorAll('.countdown-timer');
+        
+        countdowns.forEach(countdown => {
+            const endDate = new Date(countdown.dataset.endDate).getTime();
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdown.querySelector('[data-days]').textContent = days.toString().padStart(2, '0');
+                countdown.querySelector('[data-hours]').textContent = hours.toString().padStart(2, '0');
+                countdown.querySelector('[data-minutes]').textContent = minutes.toString().padStart(2, '0');
+                countdown.querySelector('[data-seconds]').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    countdown.innerHTML = "<p>Offer expired</p>";
+                }
+            }, 1000);
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', updateCountdown);
+</script>
+</div>

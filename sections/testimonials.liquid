@@ -1,43 +1,174 @@
-<section id="{{ section.id }}" class="py-12">
-  <div class="container mx-auto px-6 max-w-4xl text-center">
-    <h2 class="text-2xl font-semibold text-black mb-6">{{ section.settings.title }}</h2>
+{% comment %}
+🧩 Testimonial Slider — Minimal, Dynamic & Theme-Editor Friendly
+- Two layout styles
+- Arrows & dots same as featured products
+- Cards fully customizable
+{% endcomment %}
 
-    <div class="relative">
-      <div class="testimonial-track overflow-hidden">
+<section class="testimonial-slider-section" id="testimonial-{{ section.id }}">
+  <div class="max-w-6xl mx-auto px-4 py-12 relative">
+
+    <!-- Heading (optional block) -->
+    {% if section.settings.heading != blank %}
+      <h2 class="text-3xl font-bold text-center mb-10">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="swiper testimonialSwiper">
+      <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div class="testimonial-item p-6 bg-white rounded-lg shadow-md mb-4">
-            <p class="text-black/80">“{{ block.settings.quote }}”</p>
-            <div class="mt-4 font-semibold">{{ block.settings.author }}</div>
-            <div class="text-sm text-black/60">{{ block.settings.role }}</div>
+          <div class="swiper-slide">
+            {% assign layout = section.settings.layout_style %}
+            
+            {% if layout == 'style1' %}
+              <!-- Style 1: Quote Top Left + Stars -->
+              <div class="testimonial-card bg-white rounded-2xl shadow-sm p-8 relative flex flex-col items-center text-center">
+                <span class="absolute left-6 top-4 text-6xl text-gray-200 font-serif select-none">“</span>
+                <h3 class="text-lg font-semibold mb-2 relative z-10">{{ block.settings.name }}</h3>
+                <p class="text-gray-600 mb-4 leading-relaxed relative z-10 max-w-md">{{ block.settings.text }}</p>
+                <div class="flex justify-center gap-1 relative z-10">
+                  {% for i in (1..5) %}
+                    {% if i <= block.settings.stars %}
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-yellow-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.785.57-1.84-.197-1.54-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gray-300" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.785.57-1.84-.197-1.54-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/></svg>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+
+            {% elsif layout == 'style2' %}
+              <!-- Style 2: Quote Bottom Right -->
+              <div class="testimonial-card bg-white rounded-2xl shadow-sm p-8 relative flex flex-col items-center text-center">
+                <h3 class="text-lg font-semibold mb-2">{{ block.settings.name }}</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed max-w-md">{{ block.settings.text }}</p>
+                <span class="absolute right-6 bottom-4 text-6xl text-gray-200 font-serif select-none">“</span>
+              </div>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
 
-      <button class="carousel-arrow prev absolute left-0 top-1/2 -translate-y-1/2 p-2 border rounded">‹</button>
-      <button class="carousel-arrow next absolute right-0 top-1/2 -translate-y-1/2 p-2 border rounded">›</button>
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-prev small-nav"></div>
+      <div class="swiper-button-next small-nav"></div>
 
-      <div class="carousel-dots mt-4 flex justify-center gap-2">
-        {% for block in section.blocks %}
-          <button class="dot w-3 h-3 rounded-full border"></button>
-        {% endfor %}
-      </div>
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination mt-6"></div>
     </div>
   </div>
-
-  {% schema %}
-  {
-    "name": "Testimonials",
-    "settings": [
-      { "type": "text", "id": "title", "label": "Title", "default": "What people say" }
-    ],
-    "blocks": [
-      { "type": "testimonial", "name": "Testimonial", "settings": [
-        { "type": "textarea", "id": "quote", "label": "Quote" },
-        { "type": "text", "id": "author", "label": "Author" },
-        { "type": "text", "id": "role", "label": "Role" }
-      ] }
-    ],
-    "max_blocks": 8
-  }
-  {% endschema %}
 </section>
+
+<style>
+.testimonial-slider-section {
+  background-color: #fafafa;
+}
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.small-nav {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.small-nav::after {
+  font-size: 12px;
+  color: #222;
+}
+.swiper-pagination-bullet {
+  background-color: #cfcfcf;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: #000;
+}
+@media (max-width: 768px) {
+  .small-nav {
+    display: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.testimonialSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      speed: 600
+    });
+  } else {
+    console.error('Swiper not found. Please include Swiper library.');
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "select",
+      "id": "layout_style",
+      "label": "Layout Style",
+      "options": [
+        { "value": "style1", "label": "Quote Top Left + Stars" },
+        { "value": "style2", "label": "Quote Bottom Right" }
+      ],
+      "default": "style1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name / Heading", "default": "John Doe" },
+        { "type": "textarea", "id": "text", "label": "Testimonial Text", "default": "This product exceeded my expectations in every way." },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "category": "Testimonials",
+      "blocks": [{ "type": "testimonial" }]
+    }
+  ]
+}
+{% endschema %}

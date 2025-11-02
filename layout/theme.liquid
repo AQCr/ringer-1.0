@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ request.locale.iso_code }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page_title }}</title>
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+  {{ 'output.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+<body>
+  {% section 'navigation' %}
+  {% section 'hero-section-top' %}
+  {% section 'brand-story' %}
+  {% section 'featured-products' %}
+  {% section 'video-banner' %}
+  {% section 'collection-showcase' %}
+  {% section 'testimonials' %}
+  {% section 'features' %}
+  {% section 'offer-countdown' %}
+  {% section 'faq' %}
+  {% section 'footer' %}
 
-    <title>{{ page_title }} - {{ shop.name }}</title>
-    <meta name="description" content="{{ page_description | escape }}">
+  {{ content_for_layout }}
+  <!-- Swiper JS & CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-
-    {{ content_for_header }}
-  </head>
-  <body class="bg-white text-black">
-    <main role="main">
-      {% #section %}
-      {{ content_for_layout }}
-      
-    </main>
-  </body>
+</body>
 </html>

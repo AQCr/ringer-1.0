@@ -1,0 +1,112 @@
+<section class="flexible-text-cta" style="padding: 60px 0;">
+  <div class="page-width">
+    <div class="content" style="text-align: {{ section.settings.text_alignment }};">
+      
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'heading' %}
+              <h2 class="text-3xl font-bold text-center mb-10" style="
+                font-size: {{ block.settings.font_size }}px;
+                color: {{ block.settings.color }};
+                margin-bottom: 15px;
+              ">
+                {{ block.settings.text }}
+              </h2>
+
+            {% when 'paragraph' %}
+              <p style="
+                max-width: 700px;
+                margin: 0 auto 20px;
+                color: {{ block.settings.color }};
+                font-size: {{ block.settings.font_size }}px;
+                line-height: 1.6;
+              ">
+                {{ block.settings.text }}
+              </p>
+
+            {% when 'button' %}
+              <a href="{{ block.settings.link | default: '#' }}" 
+                 style="
+                   display: inline-block;
+                   padding: 12px 25px;
+                   background-color: {{ block.settings.bg_color }};
+                   color: {{ block.settings.text_color }};
+                   border-radius: 6px;
+                   text-decoration: none;
+                   font-size: {{ block.settings.font_size }}px;
+                 ">
+                {{ block.settings.label }}
+              </a>
+          {% endcase %}
+        {% endfor %}
+      {% else %}
+        <!-- Default preview content (visible before adding blocks) -->
+        <h2 style="font-size: 36px; color: #000; margin-bottom: 15px;">Add Your Heading</h2>
+        <p style="font-size: 18px; color: #333; margin-bottom: 25px;">Add a paragraph block for your message or description.</p>
+        <a href="#" style="display:inline-block; padding:12px 25px; background:#000; color:#fff; border-radius:6px; text-decoration:none;">Add a Button</a>
+      {% endif %}
+      
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flexible Text & CTA",
+  "settings": [
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Overall Text Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Heading Text", "default": "Your Awesome Heading" },
+        { "type": "range", "id": "font_size", "min": 16, "max": 80, "step": 1, "unit": "px", "label": "Font Size", "default": 36 },
+        { "type": "color", "id": "color", "label": "Text Color", "default": "#000000" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Paragraph Text", "default": "This is a customizable paragraph where you can write your description or message." },
+        { "type": "range", "id": "font_size", "min": 12, "max": 40, "step": 1, "unit": "px", "label": "Font Size", "default": 18 },
+        { "type": "color", "id": "color", "label": "Text Color", "default": "#333333" }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Button Label", "default": "Learn More" },
+        { "type": "url", "id": "link", "label": "Button Link", "default": "/collections/all" },
+        { "type": "range", "id": "font_size", "min": 12, "max": 30, "step": 1, "unit": "px", "label": "Font Size", "default": 16 },
+        { "type": "color", "id": "bg_color", "label": "Button Background", "default": "#000000" },
+        { "type": "color", "id": "text_color", "label": "Button Text Color", "default": "#ffffff" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flexible Text & CTA",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "paragraph" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}
