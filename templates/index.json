@@ -1,18 +1,356 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  
   "sections": {
-    "navigation": { "type": "navigation" },
-    "hero-section-top": { "type": "hero-section-top" },
-    "brand-story": { "type": "brand-story" },
-    "featured-products": { "type": "featured-products" },
-    "video-banner": { "type": "video-banner" },
-   "collections-showcase": { "type": "collection-showcase" },
-    "testimonials": { "type": "testimonials" },
-    "features":{"type":"features"},
-    "offer-countdown": { "type": "offer-countdown" },
-    "faq": { "type": "faq" },
-    "footer": { "type": "footer" }
+    "navigation": {
+      "type": "navigation",
+      "settings": {
+        "logo_width": 30,
+        "menu": "main-menu",
+        "text_size": "lg",
+        "hover_color": "#000000",
+        "accent_color": "#000000",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "hero-section-top": {
+      "type": "hero-section-top",
+      "blocks": {
+        "card_LbFgwz": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/focus-on-creating-an-image-zoomed-in-earrings-wearing-a-lady.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        },
+        "card_QMBPrb": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/a-women-wearing-some-jewlary-for-a-party-keep-the-image-sleek.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        },
+        "card_6VcMej": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/create-an-image-where-a-women-is-showing-his-neclas-the-neclas-is-made-of-gold-and-very-minimal-style.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "card_LbFgwz",
+        "card_QMBPrb",
+        "card_6VcMej"
+      ],
+      "settings": {
+        "bg_image": "shopify://shop_images/an-image-of-jewlery-photoshoot-it-is-decently-displayed-on-hands-of-a-woman-it-must-be-a-dslr-photoshoot-focus-on-hands-wearing-gold-ring-and-jewlary-on-arm.png",
+        "heading": "Your Hero Headline",
+        "subheading": "Your subheading goes here",
+        "primary_button_text": "Shop Now",
+        "primary_button_link": "",
+        "secondary_button_text": "Learn More",
+        "secondary_button_link": ""
+      }
+    },
+    "brand-story": {
+      "type": "brand-story",
+      "blocks": {
+        "heading_VRqxkn": {
+          "type": "heading",
+          "settings": {
+            "text": "Read Our Story",
+            "font_size": 36,
+            "color": "#000000"
+          }
+        },
+        "paragraph_nLfJfN": {
+          "type": "paragraph",
+          "settings": {
+            "text": "This is a customizable paragraph where you can write your description or message. This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.",
+            "font_size": 18,
+            "color": "#333333"
+          }
+        },
+        "button_hLJbMM": {
+          "type": "button",
+          "settings": {
+            "label": "Keep Reading",
+            "link": "shopify://pages/contact",
+            "font_size": 16,
+            "bg_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VRqxkn",
+        "paragraph_nLfJfN",
+        "button_hLJbMM"
+      ],
+      "settings": {
+        "text_alignment": "center"
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "show_hot_now": true,
+        "hot_now_title": "",
+        "heading": "Our Featured Products",
+        "collection": "collection-with-variants",
+        "products_limit": 3,
+        "show_title": true,
+        "show_description": true,
+        "show_stars": true,
+        "show_add_to_cart": true,
+        "show_buy_now": true
+      }
+    },
+    "video-banner": {
+      "type": "video-banner",
+      "settings": {
+        "video": "shopify://files/videos/PixVerse_V5_Image_Text_360P_I_want_a_video_tha.mp4",
+        "heading": "Explore Unique Collections",
+        "text": "A Little Scroll Away >>>"
+      }
+    },
+    "collections-showcase": {
+      "type": "collection-showcase",
+      "blocks": {
+        "collection_966qUU": {
+          "type": "collection",
+          "settings": {
+            "collection": "party-wear"
+          }
+        },
+        "collection_cGjmfi": {
+          "type": "collection",
+          "settings": {
+            "collection": "collection-with-variants"
+          }
+        },
+        "collection_64HRRq": {
+          "type": "collection",
+          "settings": {
+            "collection": "top-men-collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_966qUU",
+        "collection_cGjmfi",
+        "collection_64HRRq"
+      ],
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_XBHkWt": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        },
+        "testimonial_tcQGfb": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        },
+        "testimonial_E3Wf7U": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_XBHkWt",
+        "testimonial_tcQGfb",
+        "testimonial_E3Wf7U"
+      ],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "layout_style": "style1"
+      }
+    },
+    "features": {
+      "type": "features",
+      "blocks": {
+        "feature_NdhLLH": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_6ERNwq": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_W6VVdz": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_HH7j4C": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_AdmhKF": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_CqLUDd": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
+            "description": "Add your feature description here"
+          }
+        }
+      },
+      "block_order": [
+        "feature_NdhLLH",
+        "feature_6ERNwq",
+        "feature_W6VVdz",
+        "feature_HH7j4C",
+        "feature_AdmhKF",
+        "feature_CqLUDd"
+      ],
+      "settings": {
+        "section_heading": "Our Features"
+      }
+    },
+    "offer-countdown": {
+      "type": "offer-countdown",
+      "settings": {
+        "heading": "Limited Time Offer",
+        "end_date": "30 november",
+        "product": "womens-long-cardigan"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq_kycFTU": {
+          "type": "faq",
+          "settings": {
+            "question": "How Long it will take to deliver my order?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
+          }
+        },
+        "faq_PgxdVF": {
+          "type": "faq",
+          "settings": {
+            "question": "What is gold standard?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
+          }
+        },
+        "faq_nmQLGg": {
+          "type": "faq",
+          "settings": {
+            "question": "How i can customize my event jewllary?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
+          }
+        }
+      },
+      "block_order": [
+        "faq_kycFTU",
+        "faq_PgxdVF",
+        "faq_nmQLGg"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo_WWjtzw": {
+          "type": "logo",
+          "settings": {
+            "footer_logo": "shopify://shop_images/pngwing.com.png",
+            "logo_text": "Your Brand"
+          }
+        },
+        "menu_ieMQnX": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Important Links",
+            "footer_menu": "important-links"
+          }
+        },
+        "menu_YqxKXW": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Privacy",
+            "footer_menu": "main-menu"
+          }
+        },
+        "social_MNkkke": {
+          "type": "social",
+          "settings": {
+            "social_title": "Follow Us",
+            "facebook_link": "https://www.facebook.com/",
+            "instagram_link": "https://www.instagram.com/",
+            "tiktok_link": "https://www.facebook.com/",
+            "youtube_link": "https://www.yooutube.com/"
+          }
+        }
+      },
+      "block_order": [
+        "logo_WWjtzw",
+        "menu_ieMQnX",
+        "menu_YqxKXW",
+        "social_MNkkke"
+      ],
+      "settings": {}
+    }
   },
   "order": [
     "navigation",
@@ -26,5 +364,5 @@
     "offer-countdown",
     "faq",
     "footer"
-    ]
+  ]
 }

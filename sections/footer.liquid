@@ -9,7 +9,7 @@
       {% when 'logo' %}
         <div class="flex flex-col gap-3">
           {% if block.settings.footer_logo %}
-            <img src="{{ block.settings.footer_logo | image_url }}" class="w-36" />
+            <img src="{{ block.settings.footer_logo | image_url }}" width="" height="" class="w-36" />
           {% else %}
             <h2 class="text-xl font-semibold tracking-wide">{{ block.settings.logo_text }}</h2>
           {% endif %}
