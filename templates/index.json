@@ -118,7 +118,7 @@
         "show_hot_now": true,
         "hot_now_title": "",
         "heading": "Our Featured Products",
-        "collection": "top-men-collection",
+        "collection": "collection-with-variants",
         "products_limit": 3,
         "show_title": true,
         "show_description": true,
