@@ -208,35 +208,48 @@
         "feature_NdhLLH": {
           "type": "feature",
           "settings": {
-            "title": "Feature Title",
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
             "description": "Add your feature description here"
           }
         },
         "feature_6ERNwq": {
           "type": "feature",
           "settings": {
-            "title": "Feature Title",
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
             "description": "Add your feature description here"
           }
         },
-        "feature_dLAx44": {
+        "feature_W6VVdz": {
           "type": "feature",
           "settings": {
-            "title": "Feature Title",
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
             "description": "Add your feature description here"
           }
         },
-        "feature_A9edTr": {
+        "feature_HH7j4C": {
           "type": "feature",
           "settings": {
-            "title": "Feature Title",
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
             "description": "Add your feature description here"
           }
         },
-        "feature_MfXbYX": {
+        "feature_AdmhKF": {
           "type": "feature",
           "settings": {
-            "title": "Feature Title",
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "Quality",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_CqLUDd": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/create-an-icon-showing-quality.png",
+            "title": "24/7 Support",
             "description": "Add your feature description here"
           }
         }
@@ -244,9 +257,10 @@
       "block_order": [
         "feature_NdhLLH",
         "feature_6ERNwq",
-        "feature_dLAx44",
-        "feature_A9edTr",
-        "feature_MfXbYX"
+        "feature_W6VVdz",
+        "feature_HH7j4C",
+        "feature_AdmhKF",
+        "feature_CqLUDd"
       ],
       "settings": {
         "section_heading": "Our Features"
