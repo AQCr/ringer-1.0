@@ -265,53 +265,29 @@
         "faq_kycFTU": {
           "type": "faq",
           "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
+            "question": "How Long it will take to deliver my order?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
           }
         },
         "faq_PgxdVF": {
           "type": "faq",
           "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
+            "question": "What is gold standard?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
           }
         },
         "faq_nmQLGg": {
           "type": "faq",
           "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
-          }
-        },
-        "faq_yUDBjB": {
-          "type": "faq",
-          "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
-          }
-        },
-        "faq_cdTUcf": {
-          "type": "faq",
-          "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
-          }
-        },
-        "faq_Kcxank": {
-          "type": "faq",
-          "settings": {
-            "question": "What is your question?",
-            "answer": "Provide the answer to your question here."
+            "question": "How i can customize my event jewllary?",
+            "answer": "Your favourite jewllary will be deliver in 1 day in same city."
           }
         }
       },
       "block_order": [
         "faq_kycFTU",
         "faq_PgxdVF",
-        "faq_nmQLGg",
-        "faq_yUDBjB",
-        "faq_cdTUcf",
-        "faq_Kcxank"
+        "faq_nmQLGg"
       ],
       "settings": {
         "title": "Frequently Asked Questions"
@@ -350,21 +326,13 @@
             "tiktok_link": "https://www.facebook.com/",
             "youtube_link": "https://www.yooutube.com/"
           }
-        },
-        "email_EQ7Rdq": {
-          "type": "email",
-          "settings": {
-            "email_title": "Newsletter",
-            "email_subtext": "Stay updated with new drops"
-          }
         }
       },
       "block_order": [
         "logo_WWjtzw",
         "menu_ieMQnX",
         "menu_YqxKXW",
-        "social_MNkkke",
-        "email_EQ7Rdq"
+        "social_MNkkke"
       ],
       "settings": {}
     }
