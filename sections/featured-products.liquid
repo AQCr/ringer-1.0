@@ -17,7 +17,7 @@
             <div class="border rounded-xl shadow-md overflow-hidden flex flex-col bg-white hover:shadow-lg transition">
               <a href="{{ product.url }}" class="block">
                 {% if product.featured_image %}
-                  <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" class="w-full h-72 object-cover">
+                  <img src="{{ product.featured_image | image_url: width: 800 }}" width="" height="" alt="{{ product.title }}" class="w-full h-72 object-cover">
                 {% endif %}
               </a>
 
@@ -123,27 +123,6 @@
       });
     });
   </script>
-
-  {% schema %}
-  {
-    "name": "Featured Products",
-    "settings": [
-      { "type": "checkbox", "id": "show_hot_now", "label": "Show Hot Now Label", "default": true },
-      { "type": "text", "id": "hot_now_title", "label": "Hot Now Title", "default": "🔥 Hot Now" },
-      { "type": "text", "id": "heading", "label": "Section Heading", "default": "Our Featured Products" },
-      { "type": "collection", "id": "collection", "label": "Select Collection" },
-      { "type": "range", "id": "products_limit", "label": "Number of Products", "min": 3, "max": 6, "step": 1, "default": 3 },
-      { "type": "checkbox", "id": "show_title", "label": "Show Product Title", "default": true },
-      { "type": "checkbox", "id": "show_description", "label": "Show Product Description", "default": true },
-      { "type": "checkbox", "id": "show_stars", "label": "Show Star Ratings", "default": true },
-      { "type": "checkbox", "id": "show_add_to_cart", "label": "Show Add to Cart Button", "default": true },
-      { "type": "checkbox", "id": "show_buy_now", "label": "Show Buy Now Button", "default": true }
-    ],
-    "presets": [
-      { "name": "Featured Products", "category": "Products" }
-    ]
-  }
-  {% endschema %}
 </section>
 <style>
   /* ✅ Fully hide scrollbar across browsers */
@@ -229,3 +208,25 @@
     });
   });
 </script>
+
+
+  {% schema %}
+  {
+    "name": "Featured Products",
+    "settings": [
+      { "type": "checkbox", "id": "show_hot_now", "label": "Show Hot Now Label", "default": true },
+      { "type": "text", "id": "hot_now_title", "label": "Hot Now Title", "default": "Hot Now" },
+      { "type": "text", "id": "heading", "label": "Section Heading", "default": "Our Featured Products" },
+      { "type": "collection", "id": "collection", "label": "Select Collection" },
+      { "type": "range", "id": "products_limit", "label": "Number of Products", "min": 3, "max": 6, "step": 1, "default": 3 },
+      { "type": "checkbox", "id": "show_title", "label": "Show Product Title", "default": true },
+      { "type": "checkbox", "id": "show_description", "label": "Show Product Description", "default": true },
+      { "type": "checkbox", "id": "show_stars", "label": "Show Star Ratings", "default": true },
+      { "type": "checkbox", "id": "show_add_to_cart", "label": "Show Add to Cart Button", "default": true },
+      { "type": "checkbox", "id": "show_buy_now", "label": "Show Buy Now Button", "default": true }
+    ],
+    "presets": [
+      { "name": "Featured Products", "category": "Products" }
+    ]
+  }
+  {% endschema %}

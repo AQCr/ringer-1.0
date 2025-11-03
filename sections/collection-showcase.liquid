@@ -29,7 +29,7 @@ Section: Collection Showcase
               data-img="{{ img_src | escape }}"
               data-title="{{ coll.title | escape }}"
             >
-              <img src="{{ img_src }}" alt="{{ coll.title | escape }}" loading="lazy">
+              <img src="{{ image_src }}" alt="{{ coll.title | escape }}" width="" height="" loading="lazy">
               <div class="cs-thumb-title">{{ coll.title }}</div>
             </a>
           {% endfor %}
@@ -154,7 +154,7 @@ Section: Collection Showcase
       }
     })();
   </script>
-
+</section>
   {% schema %}
   {
     "name": "Collection Showcase",
@@ -181,4 +181,3 @@ Section: Collection Showcase
     ]
   }
   {% endschema %}
-</section>

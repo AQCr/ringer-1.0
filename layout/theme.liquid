@@ -10,8 +10,10 @@
 <body>
 
   {{ content_for_layout }}
+
   <!-- Swiper JS & CSS -->
-<script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
 {{ 'main.css' | asset_url | stylesheet_tag }}
 
 
