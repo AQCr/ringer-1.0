@@ -12,7 +12,6 @@
     "features":{"type":"features"},
     "offer-countdown": { "type": "offer-countdown" },
     "faq": { "type": "faq" },
-    "final-cta": { "type": "final-cta" },
     "footer": { "type": "footer" }
   },
   "order": [
@@ -21,7 +20,7 @@
     "brand-story",
     "featured-products",
     "video-banner",
-    "collection-showcase",
+    "collections-showcase",
     "testimonials",
     "features",
     "offer-countdown",

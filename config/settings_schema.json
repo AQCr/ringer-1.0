@@ -9,7 +9,6 @@
   },
   {
     "name": "Store settings",
-    "category": "general",
     "settings": [
       {
         "type": "image_picker",
