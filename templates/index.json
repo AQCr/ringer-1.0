@@ -1,18 +1,174 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  
   "sections": {
-    "navigation": { "type": "navigation" },
-    "hero-section-top": { "type": "hero-section-top" },
-    "brand-story": { "type": "brand-story" },
-    "featured-products": { "type": "featured-products" },
-    "video-banner": { "type": "video-banner" },
-   "collections-showcase": { "type": "collection-showcase" },
-    "testimonials": { "type": "testimonials" },
-    "features":{"type":"features"},
-    "offer-countdown": { "type": "offer-countdown" },
-    "faq": { "type": "faq" },
-    "footer": { "type": "footer" }
+    "navigation": {
+      "type": "navigation",
+      "settings": {
+        "logo_width": 20,
+        "menu": "main-menu",
+        "text_size": "base",
+        "hover_color": "#000000",
+        "accent_color": "#000000",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "hero-section-top": {
+      "type": "hero-section-top",
+      "blocks": {
+        "card_LbFgwz": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/focus-on-creating-an-image-zoomed-in-earrings-wearing-a-lady.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        },
+        "card_QMBPrb": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/a-women-wearing-some-jewlary-for-a-party-keep-the-image-sleek.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        },
+        "card_6VcMej": {
+          "type": "card",
+          "settings": {
+            "content_type": "image",
+            "image": "shopify://shop_images/create-an-image-where-a-women-is-showing-his-neclas-the-neclas-is-made-of-gold-and-very-minimal-style.png",
+            "product": "",
+            "review_text": "Amazing product, love it!",
+            "reviewer_name": "John Doe",
+            "review_stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "card_LbFgwz",
+        "card_QMBPrb",
+        "card_6VcMej"
+      ],
+      "settings": {
+        "bg_image": "shopify://shop_images/an-image-of-jewlery-photoshoot-it-is-decently-displayed-on-hands-of-a-woman-it-must-be-a-dslr-photoshoot-focus-on-hands-wearing-gold-ring-and-jewlary-on-arm.png",
+        "heading": "Your Hero Headline",
+        "subheading": "Your subheading goes here",
+        "primary_button_text": "Shop Now",
+        "primary_button_link": "",
+        "secondary_button_text": "Learn More",
+        "secondary_button_link": ""
+      }
+    },
+    "brand-story": {
+      "type": "brand-story",
+      "blocks": {
+        "heading_VRqxkn": {
+          "type": "heading",
+          "settings": {
+            "text": "Read Our Story",
+            "font_size": 36,
+            "color": "#000000"
+          }
+        },
+        "paragraph_nLfJfN": {
+          "type": "paragraph",
+          "settings": {
+            "text": "This is a customizable paragraph where you can write your description or message. This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.This is a customizable paragraph where you can write your description or message.",
+            "font_size": 18,
+            "color": "#333333"
+          }
+        },
+        "button_hLJbMM": {
+          "type": "button",
+          "settings": {
+            "label": "Keep Reading",
+            "link": "shopify://pages/contact",
+            "font_size": 16,
+            "bg_color": "#000000",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VRqxkn",
+        "paragraph_nLfJfN",
+        "button_hLJbMM"
+      ],
+      "settings": {
+        "text_alignment": "center"
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "show_hot_now": true,
+        "hot_now_title": "",
+        "heading": "Our Featured Products",
+        "collection": "",
+        "products_limit": 3,
+        "show_title": true,
+        "show_description": true,
+        "show_stars": true,
+        "show_add_to_cart": true,
+        "show_buy_now": true
+      }
+    },
+    "video-banner": {
+      "type": "video-banner",
+      "settings": {
+        "heading": "Watch Our Story",
+        "text": "A short description goes here"
+      }
+    },
+    "collections-showcase": {
+      "type": "collection-showcase",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "layout_style": "style1"
+      }
+    },
+    "features": {
+      "type": "features",
+      "settings": {
+        "section_heading": "Our Features"
+      }
+    },
+    "offer-countdown": {
+      "type": "offer-countdown",
+      "settings": {
+        "heading": "Limited Time Offer",
+        "end_date": "",
+        "product": ""
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {}
+    }
   },
   "order": [
     "navigation",
@@ -26,5 +182,5 @@
     "offer-countdown",
     "faq",
     "footer"
-    ]
+  ]
 }
