@@ -130,8 +130,9 @@
     "video-banner": {
       "type": "video-banner",
       "settings": {
-        "heading": "Watch Our Story",
-        "text": "A short description goes here"
+        "video": "shopify://files/videos/PixVerse_V5_Image_Text_360P_I_want_a_video_tha.mp4",
+        "heading": "Explore Unique Collections",
+        "text": "A Little Scroll Away >>>"
       }
     },
     "collections-showcase": {
