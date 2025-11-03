@@ -1,5 +1,5 @@
 [
-    {
+  {
     "name": "theme_info",
     "theme_name": "Ringer",
     "theme_version": "1.0",
@@ -8,13 +8,14 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
-    "name":"Store settings", "settings":[
-    {
+    "name": "Store settings",
+    "category": "general",
+    "settings": [
+      {
         "type": "image_picker",
-        "label": "logo_image",
-        "id": "logo"
-    }
-]
+        "id": "logo",
+        "label": "Logo image"
+      }
+    ]
   }
-  
 ]

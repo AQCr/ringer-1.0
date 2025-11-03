@@ -1,0 +1,10 @@
+
+{
+  
+  "sections": {
+    "navigation": { "type": "navigation" },
+  },
+  "order": [
+    "navigation",
+    ]
+}
