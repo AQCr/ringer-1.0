@@ -59,6 +59,7 @@
               {% when 'image' %}
                 {% if block.settings.image %}
                   <img src="{{ block.settings.image | image_url: width: 600 }}" alt=""
+                       width="600" height="800"
                        class="w-full h-full object-cover">
                 {% else %}
                   <div class="w-full h-full flex items-center justify-center text-gray-400">Upload image</div>
@@ -70,6 +71,7 @@
                   <div class="p-4 flex flex-col justify-between h-full text-left">
                     <div class="aspect-square mb-3">
                       <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}"
+                           width="400" height="400"
                            class="rounded-lg object-cover w-full h-full" />
                     </div>
                     <h3 class="text-sm font-semibold">{{ product.title }}</h3>
