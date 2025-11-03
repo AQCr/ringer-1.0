@@ -136,10 +136,66 @@
     },
     "collections-showcase": {
       "type": "collection-showcase",
+      "blocks": {
+        "collection_966qUU": {
+          "type": "collection",
+          "settings": {
+            "collection": "party-wear"
+          }
+        },
+        "collection_cGjmfi": {
+          "type": "collection",
+          "settings": {
+            "collection": "collection-with-variants"
+          }
+        },
+        "collection_64HRRq": {
+          "type": "collection",
+          "settings": {
+            "collection": "top-men-collection"
+          }
+        }
+      },
+      "block_order": [
+        "collection_966qUU",
+        "collection_cGjmfi",
+        "collection_64HRRq"
+      ],
       "settings": {}
     },
     "testimonials": {
       "type": "testimonials",
+      "blocks": {
+        "testimonial_XBHkWt": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        },
+        "testimonial_tcQGfb": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        },
+        "testimonial_E3Wf7U": {
+          "type": "testimonial",
+          "settings": {
+            "name": "John Doe",
+            "text": "This product exceeded my expectations in every way.",
+            "stars": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_XBHkWt",
+        "testimonial_tcQGfb",
+        "testimonial_E3Wf7U"
+      ],
       "settings": {
         "heading": "What Our Customers Say",
         "layout_style": "style1"
@@ -147,6 +203,50 @@
     },
     "features": {
       "type": "features",
+      "blocks": {
+        "feature_NdhLLH": {
+          "type": "feature",
+          "settings": {
+            "title": "Feature Title",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_6ERNwq": {
+          "type": "feature",
+          "settings": {
+            "title": "Feature Title",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_dLAx44": {
+          "type": "feature",
+          "settings": {
+            "title": "Feature Title",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_A9edTr": {
+          "type": "feature",
+          "settings": {
+            "title": "Feature Title",
+            "description": "Add your feature description here"
+          }
+        },
+        "feature_MfXbYX": {
+          "type": "feature",
+          "settings": {
+            "title": "Feature Title",
+            "description": "Add your feature description here"
+          }
+        }
+      },
+      "block_order": [
+        "feature_NdhLLH",
+        "feature_6ERNwq",
+        "feature_dLAx44",
+        "feature_A9edTr",
+        "feature_MfXbYX"
+      ],
       "settings": {
         "section_heading": "Our Features"
       }
@@ -155,18 +255,117 @@
       "type": "offer-countdown",
       "settings": {
         "heading": "Limited Time Offer",
-        "end_date": "",
-        "product": ""
+        "end_date": "30 november",
+        "product": "womens-long-cardigan"
       }
     },
     "faq": {
       "type": "faq",
+      "blocks": {
+        "faq_kycFTU": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        },
+        "faq_PgxdVF": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        },
+        "faq_nmQLGg": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        },
+        "faq_yUDBjB": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        },
+        "faq_cdTUcf": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        },
+        "faq_Kcxank": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Provide the answer to your question here."
+          }
+        }
+      },
+      "block_order": [
+        "faq_kycFTU",
+        "faq_PgxdVF",
+        "faq_nmQLGg",
+        "faq_yUDBjB",
+        "faq_cdTUcf",
+        "faq_Kcxank"
+      ],
       "settings": {
         "title": "Frequently Asked Questions"
       }
     },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "logo_WWjtzw": {
+          "type": "logo",
+          "settings": {
+            "footer_logo": "shopify://shop_images/pngwing.com.png",
+            "logo_text": "Your Brand"
+          }
+        },
+        "menu_ieMQnX": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Important Links",
+            "footer_menu": "important-links"
+          }
+        },
+        "menu_YqxKXW": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Privacy",
+            "footer_menu": "main-menu"
+          }
+        },
+        "social_MNkkke": {
+          "type": "social",
+          "settings": {
+            "social_title": "Follow Us",
+            "facebook_link": "https://www.facebook.com/",
+            "instagram_link": "https://www.instagram.com/",
+            "tiktok_link": "https://www.facebook.com/",
+            "youtube_link": "https://www.yooutube.com/"
+          }
+        },
+        "email_EQ7Rdq": {
+          "type": "email",
+          "settings": {
+            "email_title": "Newsletter",
+            "email_subtext": "Stay updated with new drops"
+          }
+        }
+      },
+      "block_order": [
+        "logo_WWjtzw",
+        "menu_ieMQnX",
+        "menu_YqxKXW",
+        "social_MNkkke",
+        "email_EQ7Rdq"
+      ],
       "settings": {}
     }
   },
