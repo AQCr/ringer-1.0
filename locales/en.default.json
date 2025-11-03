@@ -1,0 +1,117 @@
+{
+    "general": {
+        "search": {
+           "title": "Search",
+        "placeholder": "Search products, collections, articles...",
+        "submit": "Search",
+        "clear": "Clear search",
+        "aria_label": "Search the store",
+        "no_results": "No results found for \"{{ query }}\"",
+        "results_count": "{{ count }} result(s) for \"{{ query }}\"",
+        "recent": "Recent searches",
+        "suggestions_title": "Suggestions",
+        "filter": "Filter",
+        "sort": "Sort",
+        "loading": "Searching…"
+    },
+    "customer": {
+        "account_link": "Account",
+        "sign_in": {
+            "title": "Sign in",
+            "email_label": "Email",
+            "password_label": "Password",
+            "forgot_password": "Forgot your password?",
+            "submit": "Sign in",
+            "error_invalid": "Invalid email or password.",
+            "aria_label": "Sign in to your account"
+        },
+        "register": {
+            "title": "Create account",
+            "first_name": "First name",
+            "last_name": "Last name",
+            "email": "Email",
+            "password": "Password",
+            "submit": "Create account",
+            "success": "Account created. Check your email to confirm.",
+            "error": "There was a problem creating your account."
+        },
+        "recover_password": {
+            "title": "Reset password",
+            "email_label": "Enter your account email",
+            "submit": "Send reset instructions",
+            "success": "If an account exists with that email, instructions were sent.",
+            "error": "Unable to send reset instructions."
+        },
+        "account_home": {
+            "title": "My account",
+            "orders": "Orders",
+            "order_number": "Order #{{ number }}",
+            "addresses": "Addresses",
+            "account_details": "Account details",
+            "logout": "Log out"
+        },
+        "validation": {
+            "required": "This field is required",
+            "invalid_email": "Enter a valid email address",
+            "min_password": "Password must be at least {{ count }} characters"
+        }
+    },
+    "cart": {
+        "title": "Cart",
+        "empty": "Your cart is currently empty.",
+        "item_count": "{{ count }} item(s)",
+        "item_added": "Added to cart",
+        "item_removed": "Removed from cart",
+        "update": "Update",
+        "checkout": "Checkout",
+        "subtotal": "Subtotal",
+        "total": "Total",
+        "shipping_estimate": "Estimated shipping",
+        "discount_label": "Discount code",
+        "apply_discount": "Apply",
+        "remove_discount": "Remove",
+        "continue_shopping": "Continue shopping",
+        "quantity_label": "Quantity",
+        "note_label": "Add a note to your order",
+        "aria_label": "Shopping cart"
+    },
+    "navigation": {
+        "_sync_note": "Keep these keys synced with your theme's navigation section, menus and settings_schema. Use menu handles (e.g. main-menu, footer-menu) as keys in runtime when rendering links.",
+        "main": {
+            "title": "Main menu",
+            "aria_label": "Main navigation",
+            "home": "Home",
+            "collections": "Collections",
+            "products": "Products",
+            "sale": "Sale",
+            "search": "Search",
+            "account": "Account",
+            "cart": "Cart"
+        },
+        "mobile": {
+            "open": "Open menu",
+            "close": "Close menu",
+            "aria_label": "Mobile navigation"
+        },
+        "footer": {
+            "title": "Footer menu",
+            "aria_label": "Footer navigation",
+            "contact": "Contact",
+            "help": "Help",
+            "privacy": "Privacy policy",
+            "terms": "Terms of service"
+        },
+        "guides": {
+            "overview": "Navigation keys should mirror your theme menu handles. Example usage in Liquid: linklists[settings.main_menu] or linklists.main-menu.",
+            "patterns": "Support nested menus with items[] -> children[]; provide aria-labels for dropdowns and mobile toggles.",
+            "sync_steps": "1) Define menus in Shopify Admin -> Navigation. 2) Add handles to theme settings. 3) Keep keys here consistent with handles and section labels."
+        }
+    },
+    "aria": {
+        "close": "Close",
+        "open": "Open",
+        "menu": "Menu",
+        "back": "Back"
+    }
+}
+}

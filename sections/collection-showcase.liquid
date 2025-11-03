@@ -18,7 +18,7 @@ Section: Collection Showcase
           {% for block in section.blocks %}
             {% assign idx = forloop.index0 %}
             {% assign coll = block.settings.collection %}
-            {% assign img_src = coll.image | img_url: '800x' %}
+            {% assign img_src = coll.image | image_url: '800x' %}
             {% if img_src == blank %}
               {% assign img_src = 'https://via.placeholder.com/800x600?text=No+Image' %}
             {% endif %}
@@ -29,7 +29,7 @@ Section: Collection Showcase
               data-img="{{ img_src | escape }}"
               data-title="{{ coll.title | escape }}"
             >
-              <img src="{{ image_src }}" alt="{{ coll.title | escape }}" width="" height="" loading="lazy">
+              <img src="{{ img_src }}" alt="{{ coll.title | escape }}" width="" height="" loading="lazy">
               <div class="cs-thumb-title">{{ coll.title }}</div>
             </a>
           {% endfor %}
@@ -44,12 +44,12 @@ Section: Collection Showcase
         <div class="cs-right">
           {% comment %} Show first collection as active large image {% endcomment %}
           {% assign first = section.blocks.first.settings.collection %}
-          {% assign first_img = first.image | img_url: '1200x1200' %}
+          {% assign first_img = first.image | image_url: '1200x1200' %}
           {% if first_img == blank %}
             {% assign first_img = 'https://via.placeholder.com/1200x800?text=No+Image' %}
           {% endif %}
           <a href="{{ first.url }}" class="cs-large" id="cs-large-link">
-            <img id="cs-large-img" src="{{ first_img }}" alt="{{ first.title | escape }}" loading="lazy">
+            <img id="cs-large-img" src="{{ first_img }}" width="" height="" alt="{{ first.title | escape }}" loading="lazy">
             <div class="cs-large-title" id="cs-large-title">{{ first.title }}</div>
           </a>
         </div>
