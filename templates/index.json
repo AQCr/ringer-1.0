@@ -11,15 +11,7 @@
   "sections": {
     "navigation": {
       "type": "navigation",
-      "settings": {
-        "logo_width": 30,
-        "menu": "main-menu",
-        "text_size": "base",
-        "hover_color": "#000000",
-        "accent_color": "#f70000",
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
+      "settings": {}
     },
     "hero-section-top": {
       "type": "hero-section-top",
@@ -165,7 +157,9 @@
         "collection_cGjmfi",
         "collection_64HRRq"
       ],
-      "settings": {}
+      "settings": {
+        "initial_show": 3
+      }
     },
     "testimonials": {
       "type": "testimonials",
@@ -204,6 +198,74 @@
         "heading": "What Our Customers Say",
         "layout_style": "style1"
       }
+    },
+    "17622885293ea8d813": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9520b0c_eCCWCb": {
+          "type": "ai_gen_block_9520b0c",
+          "settings": {
+            "heading": "What Our Customers Say",
+            "subheading": "Real feedback from real customers",
+            "heading_alignment": "center",
+            "container_width": 1200,
+            "section_padding_top": 60,
+            "section_padding_bottom": 60,
+            "background_color": "#ffffff",
+            "cards_per_row": 3,
+            "card_spacing": 30,
+            "card_background": "#f9f9f9",
+            "card_border_radius": 12,
+            "card_padding": 30,
+            "card_shadow_x": 0,
+            "card_shadow_y": 2,
+            "card_shadow_blur": 10,
+            "card_shadow_color": "rgba(0,0,0,0.1)",
+            "heading_size": 36,
+            "heading_color": "#000000",
+            "subheading_size": 16,
+            "subheading_color": "#666666",
+            "name_size": 18,
+            "name_color": "#000000",
+            "role_size": 14,
+            "role_color": "#888888",
+            "text_size": 15,
+            "text_color": "#333333",
+            "image_size": 60,
+            "show_rating": true,
+            "star_color": "#FFD700",
+            "testimonial_1_name": "Sarah Johnson",
+            "testimonial_1_role": "Verified Customer",
+            "testimonial_1_text": "Absolutely love this product! The quality exceeded my expectations and the customer service was outstanding. Highly recommend to anyone looking for excellence.",
+            "testimonial_1_rating": 5,
+            "testimonial_2_name": "Michael Chen",
+            "testimonial_2_role": "Happy Client",
+            "testimonial_2_text": "Best purchase I've made this year. The attention to detail is remarkable and it arrived faster than expected. Will definitely be ordering again!",
+            "testimonial_2_rating": 5,
+            "testimonial_3_name": "Emily Rodriguez",
+            "testimonial_3_role": "Satisfied Buyer",
+            "testimonial_3_text": "Exceptional quality and service! I was impressed from start to finish. The product works perfectly and looks even better than the photos. Five stars!",
+            "testimonial_3_rating": 5,
+            "testimonial_4_name": "",
+            "testimonial_4_role": "",
+            "testimonial_4_text": "",
+            "testimonial_4_rating": 5,
+            "testimonial_5_name": "",
+            "testimonial_5_role": "",
+            "testimonial_5_text": "",
+            "testimonial_5_rating": 5,
+            "testimonial_6_name": "",
+            "testimonial_6_role": "",
+            "testimonial_6_text": "",
+            "testimonial_6_rating": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9520b0c_eCCWCb"
+      ],
+      "settings": {}
     },
     "features": {
       "type": "features",
@@ -363,6 +425,7 @@
     "video-banner",
     "collections-showcase",
     "testimonials",
+    "17622885293ea8d813",
     "features",
     "offer-countdown",
     "faq",
