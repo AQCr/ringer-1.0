@@ -130,6 +130,7 @@
     "video-banner": {
       "type": "video-banner",
       "settings": {
+        "video": "https://cdn.shopify.com/videos/c/o/v/2623acd066bd4d8bb7dc22eabd1d1c80.mp4",
         "heading": "",
         "text": ""
       }
