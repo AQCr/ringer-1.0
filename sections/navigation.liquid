@@ -1,39 +1,71 @@
-<header class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+<header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- Logo -->
-    <a href="/" class="text-2xl font-bold">Shop Name</a>
+    <!-- Left: Logo -->
+    <a href="{{ routes.root_url }}" class="text-2xl font-bold tracking-tight">
+      {{ shop.name }}
+    </a>
 
-    <!-- Desktop Navigation -->
+    <!-- Center: Desktop Navigation -->
     <nav class="hidden lg:flex space-x-8">
-      <a href="/" class="text-gray-800 hover:text-black">Home</a>
-      <a href="/collections/all" class="text-gray-800 hover:text-black">Shop</a>
-      <a href="/pages/about" class="text-gray-800 hover:text-black">About</a>
-      <a href="/pages/contact" class="text-gray-800 hover:text-black">Contact</a>
+      <a href="/" class="text-gray-700 hover:text-black">Home</a>
+      <a href="/collections/all" class="text-gray-700 hover:text-black">Shop</a>
+      <a href="/pages/about" class="text-gray-700 hover:text-black">About</a>
+      <a href="/pages/contact" class="text-gray-700 hover:text-black">Contact</a>
     </nav>
 
-    <!-- Mobile Hamburger -->
-    <button
-      id="menu-toggle"
-      class="lg:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
-      aria-label="Toggle Menu"
-    >
-      <span class="block w-full h-0.5 bg-gray-900"></span>
-      <span class="block w-full h-0.5 bg-gray-900"></span>
-      <span class="block w-full h-0.5 bg-gray-900"></span>
-    </button>
+    <!-- Right: Icons -->
+    <div class="flex items-center space-x-5">
+      <!-- Search -->
+      <button
+        id="search-btn"
+        class="text-gray-700 hover:text-black focus:outline-none"
+        aria-label="Search"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-4.35-4.35m2.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </button>
+
+      <!-- Account -->
+      <a href="/account" class="text-gray-700 hover:text-black" aria-label="Account">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5.121 17.804A9 9 0 1119.88 17.8M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+      </a>
+
+      <!-- Cart -->
+      <a href="/cart" class="relative text-gray-700 hover:text-black" aria-label="Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8h13.2L17 13M10 21h4"/>
+        </svg>
+        <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
+          {{ cart.item_count }}
+        </span>
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="lg:hidden flex flex-col justify-between w-6 h-5 focus:outline-none">
+        <span class="block w-full h-0.5 bg-gray-800"></span>
+        <span class="block w-full h-0.5 bg-gray-800"></span>
+        <span class="block w-full h-0.5 bg-gray-800"></span>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div
+  <nav
     id="mobile-menu"
-    class="hidden flex-col items-center bg-white border-t border-gray-200 shadow-md lg:hidden"
+    class="hidden flex flex-col items-center bg-white border-t border-gray-200 shadow-md lg:hidden"
   >
     <a href="/" class="block py-3 w-full text-center text-gray-800 hover:bg-gray-100">Home</a>
     <a href="/collections/all" class="block py-3 w-full text-center text-gray-800 hover:bg-gray-100">Shop</a>
     <a href="/pages/about" class="block py-3 w-full text-center text-gray-800 hover:bg-gray-100">About</a>
     <a href="/pages/contact" class="block py-3 w-full text-center text-gray-800 hover:bg-gray-100">Contact</a>
-  </div>
+  </nav>
 </header>
 
 <script>
