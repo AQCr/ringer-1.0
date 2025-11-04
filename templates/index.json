@@ -130,8 +130,8 @@
     "video-banner": {
       "type": "video-banner",
       "settings": {
-        "heading": "Explore Unique Collections",
-        "text": "A Little Scroll Away >>>"
+        "heading": "",
+        "text": ""
       }
     },
     "collections-showcase": {
