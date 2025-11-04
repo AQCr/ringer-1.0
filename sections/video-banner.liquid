@@ -1,37 +1,39 @@
 <section class="relative w-full h-[80vh] overflow-hidden">
-  {% if section.settings.video_url != blank %}
-    <video autoplay loop muted playsinline class="w-full h-full object-cover">
-      <source src="{{ section.settings.video_url }}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  {% if section.settings.video != blank %}
+    {{ section.settings.video | video_tag:
+      autoplay: true,
+      loop: true,
+      muted: true,
+      playsinline: true,
+      controls: false,
+      class: "w-full h-full object-cover" }}
   {% else %}
     <div class="bg-gray-200 w-full h-full flex items-center justify-center text-gray-600">
       Upload a video
     </div>
   {% endif %}
-  
+
   <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-6">
     <h2 class="text-3xl font-bold mb-2">{{ section.settings.heading }}</h2>
     <p class="max-w-xl">{{ section.settings.text }}</p>
   </div>
 </section>
 
-
 {% schema %}
 {
-  "name": "Video Banner",
+  "name": "Video banner",
   "settings": [
     {
-      "type": "url",
+      "type": "video",
       "id": "video",
-      "label": "Background video"
-      
+      "label": "Background video",
+      "info": "Upload a .mp4 or .mov file from your Shopify Files"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Watch Our Story"
+      "default": "Watch our story"
     },
     {
       "type": "text",
