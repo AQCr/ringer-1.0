@@ -129,6 +129,9 @@
     },
     "video-banner": {
       "type": "video-banner",
+      "custom_css": [
+        "video {object-fit: cover; width: 100%; height: 100%; display: block;}"
+      ],
       "settings": {
         "video": "shopify://files/videos/PixVerse_V5_Image_Text_360P_I_want_a_video_tha.mp4",
         "heading": "Explore Unique Collection",
