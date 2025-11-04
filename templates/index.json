@@ -130,7 +130,6 @@
     "video-banner": {
       "type": "video-banner",
       "settings": {
-        "video": "shopify://files/videos/PixVerse_V5_Image_Text_360P_I_want_a_video_tha.mp4",
         "heading": "",
         "text": ""
       }
