@@ -1,4 +1,4 @@
-<section class="w-full h-[80vh] overflow-hidden relative">
+<section class="w-full h-[80vh] overflow-hidden">
   <div class="absolute inset-0">
     {% if section.settings.video != blank %}
       {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: "w-full h-full object-cover" }}
